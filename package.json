@@ -1,0 +1,24 @@
+{
+  "name": "chatbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "typescript": "^4.6.3",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/filipwieselgren/chatbot.git"
+  },
+  "author": "Filip Wieselgren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/filipwieselgren/chatbot/issues"
+  },
+  "homepage": "https://github.com/filipwieselgren/chatbot#readme"
+}
