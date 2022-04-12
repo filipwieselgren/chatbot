@@ -529,6 +529,9 @@ const loadBotImg = ()=>{
     mainContainer.className = "main-container";
     const botContainer = document.createElement("div");
     botContainer.className = "bot-container";
+    const botImg = document.createElement("img");
+    botImg.className = "bot-img";
+    botImg.src = "../public/images/chatbot.png";
     document.body.appendChild(mainContainer);
     mainContainer.appendChild(botContainer);
 };

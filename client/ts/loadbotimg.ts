@@ -9,6 +9,13 @@ export const loadBotImg = () => {
   ) as HTMLDivElement;
   botContainer.className = "bot-container";
 
+  const botImg: HTMLImageElement = document.createElement(
+    "img"
+  ) as HTMLImageElement;
+
+  botImg.className = "bot-img";
+  botImg.src = "../public/images/chatbot.png";
+
   document.body.appendChild(mainContainer);
   mainContainer.appendChild(botContainer);
 };
