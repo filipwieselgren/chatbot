@@ -515,11 +515,13 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"hhMFS":[function(require,module,exports) {
 var _loadbotimg = require("./loadbotimg");
+var _startbot = require("./startbot");
 window.onload = function() {
     _loadbotimg.loadBotImg();
+    _startbot.startBot();
 };
 
-},{"./loadbotimg":"li0yS"}],"li0yS":[function(require,module,exports) {
+},{"./loadbotimg":"li0yS","./startbot":"1YQ8J"}],"li0yS":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "loadBotImg", ()=>loadBotImg
@@ -527,12 +529,16 @@ parcelHelpers.export(exports, "loadBotImg", ()=>loadBotImg
 const loadBotImg = ()=>{
     const mainContainer = document.createElement("div");
     mainContainer.className = "main-container";
+    const botBox = document.createElement("div");
+    botBox.className = "bot-box";
+    botBox.style.display = "none";
     const botContainer = document.createElement("div");
     botContainer.className = "bot-container";
     const botImg = document.createElement("img");
     botImg.className = "bot-img";
     botImg.src = "./public/images/chatbot.png";
     document.body.appendChild(mainContainer);
+    mainContainer.appendChild(botBox);
     mainContainer.appendChild(botContainer);
     botContainer.appendChild(botImg);
 };
@@ -567,6 +573,21 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
+},{}],"1YQ8J":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "startBot", ()=>startBot
+);
+const startBot = ()=>{
+    const getBot = document.querySelector(".bot-container");
+    getBot.addEventListener("click", ()=>{
+        const activeBot = document.querySelector(".bot-box");
+        const removeBotImg = document.querySelector(".bot-container");
+        removeBotImg.style.display = "none";
+        activeBot.style.display = "block";
+    });
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
 
 //# sourceMappingURL=index.72ca6341.js.map

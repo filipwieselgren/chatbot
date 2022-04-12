@@ -14,7 +14,14 @@
 .bot-container {
   height: 100px;
   width: 100px;
+}
+
+.bot-box {
+  height: 80vh;
+  width: 80%;
   border: 1px solid red;
+  border-radius: 5px;
+  margin: 0 20px 50px 0;
 }
 
 /*# sourceMappingURL=index.a992f708.css.map */
