@@ -531,9 +531,10 @@ const loadBotImg = ()=>{
     botContainer.className = "bot-container";
     const botImg = document.createElement("img");
     botImg.className = "bot-img";
-    botImg.src = "../public/images/chatbot.png";
+    botImg.src = "./public/images/chatbot.png";
     document.body.appendChild(mainContainer);
     mainContainer.appendChild(botContainer);
+    botContainer.appendChild(botImg);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
