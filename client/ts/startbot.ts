@@ -33,9 +33,36 @@ export const startBot = () => {
 
     openBotImg.className = "open-bot-img";
     openBotImg.src = "../public/images/chatbot-open.png";
+    openBotImg.alt = "Image of a robot";
+
+    const firstMsg: HTMLDivElement = document.createElement(
+      "div"
+    ) as HTMLDivElement;
+
+    firstMsg.className = "first-msg";
+    firstMsg.innerText =
+      "Great to have you hear! I will put you in touch with a real person now.";
+
+    const secondMsg: HTMLDivElement = document.createElement(
+      "div"
+    ) as HTMLDivElement;
+
+    secondMsg.className = "second-msg";
+    secondMsg.innerText = "But before I do that please tell me your name.";
+
+    const nameInput: HTMLInputElement = document.createElement(
+      "input"
+    ) as HTMLInputElement;
+
+    nameInput.className = "name-input";
+    nameInput.placeholder = "Write your name here...";
 
     activeBot.appendChild(chatHtml);
     activeBot.appendChild(closeBotBtn);
     activeBot.appendChild(openBotImg);
+
+    chatHtml.appendChild(firstMsg);
+    chatHtml.appendChild(secondMsg);
+    chatHtml.appendChild(nameInput);
   });
 };
