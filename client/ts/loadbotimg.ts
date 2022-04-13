@@ -4,12 +4,12 @@ export const loadBotImg = () => {
   ) as HTMLDivElement;
   mainContainer.className = "main-container";
 
-  const botBox: HTMLDivElement = document.createElement(
+  const chatBox: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
 
-  botBox.className = "bot-box";
-  botBox.style.display = "none";
+  chatBox.className = "chat-box";
+  chatBox.style.display = "none";
 
   const botContainer: HTMLDivElement = document.createElement(
     "div"
@@ -25,7 +25,7 @@ export const loadBotImg = () => {
   botImg.src = "../public/images/chatbot.png";
 
   document.body.appendChild(mainContainer);
-  mainContainer.appendChild(botBox);
+  mainContainer.appendChild(chatBox);
   mainContainer.appendChild(botContainer);
   botContainer.appendChild(botImg);
 };

@@ -529,9 +529,9 @@ parcelHelpers.export(exports, "loadBotImg", ()=>loadBotImg
 const loadBotImg = ()=>{
     const mainContainer = document.createElement("div");
     mainContainer.className = "main-container";
-    const botBox = document.createElement("div");
-    botBox.className = "bot-box";
-    botBox.style.display = "none";
+    const chatBox = document.createElement("div");
+    chatBox.className = "chat-box";
+    chatBox.style.display = "none";
     const botContainer = document.createElement("div");
     botContainer.className = "bot-container";
     const botImg = document.createElement("img");
@@ -539,7 +539,7 @@ const loadBotImg = ()=>{
     botImg.alt = "An image on a robot";
     botImg.src = "../public/images/chatbot.png";
     document.body.appendChild(mainContainer);
-    mainContainer.appendChild(botBox);
+    mainContainer.appendChild(chatBox);
     mainContainer.appendChild(botContainer);
     botContainer.appendChild(botImg);
 };
@@ -582,10 +582,17 @@ parcelHelpers.export(exports, "startBot", ()=>startBot
 const startBot = ()=>{
     const getBot = document.querySelector(".bot-container");
     getBot.addEventListener("click", ()=>{
-        const activeBot = document.querySelector(".bot-box");
+        const activeBot = document.querySelector(".chat-box");
         const removeBotImg = document.querySelector(".bot-container");
         removeBotImg.style.display = "none";
         activeBot.style.display = "block";
+        const chatHtml = document.createElement("div");
+        chatHtml.className = "chat-html";
+        const closeBotBtn = document.createElement("button");
+        closeBotBtn.className = "close-bot-btn";
+        closeBotBtn.innerText = "Close me";
+        activeBot.appendChild(chatHtml);
+        activeBot.appendChild(closeBotBtn);
     });
 };
 
