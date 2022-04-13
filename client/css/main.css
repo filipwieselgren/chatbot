@@ -48,3 +48,11 @@
   cursor: pointer;
   transform: scale(1.05);
 }
+
+.close-bot-btn:active {
+  transform: scale(1);
+}
+
+.open-bot-img {
+  width: 10%;
+}

@@ -27,7 +27,15 @@ export const startBot = () => {
     closeBotBtn.className = "close-bot-btn";
     closeBotBtn.innerText = "Close me";
 
+    const openBotImg: HTMLImageElement = document.createElement(
+      "img"
+    ) as HTMLImageElement;
+
+    openBotImg.className = "open-bot-img";
+    openBotImg.src = "../public/images/chatbot-open.png";
+
     activeBot.appendChild(chatHtml);
     activeBot.appendChild(closeBotBtn);
+    activeBot.appendChild(openBotImg);
   });
 };
