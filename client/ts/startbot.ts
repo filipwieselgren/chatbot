@@ -50,6 +50,11 @@ export const startBot = () => {
     secondMsg.className = "second-msg";
     secondMsg.innerText = "But before I do that please tell me your name.";
 
+    const nameInputContainer: HTMLDivElement = document.createElement(
+      "div"
+    ) as HTMLDivElement;
+    nameInputContainer.className = "name-input-container";
+
     const nameInput: HTMLInputElement = document.createElement(
       "input"
     ) as HTMLInputElement;
@@ -57,12 +62,21 @@ export const startBot = () => {
     nameInput.className = "name-input";
     nameInput.placeholder = "Write your name here...";
 
+    const continueBtn: HTMLButtonElement = document.createElement(
+      "button"
+    ) as HTMLButtonElement;
+
+    continueBtn.className = "continue-btn";
+    continueBtn.innerText = "Continue";
+
     activeBot.appendChild(chatHtml);
     activeBot.appendChild(closeBotBtn);
     activeBot.appendChild(openBotImg);
 
     chatHtml.appendChild(firstMsg);
     chatHtml.appendChild(secondMsg);
-    chatHtml.appendChild(nameInput);
+    chatHtml.appendChild(nameInputContainer);
+    nameInputContainer.appendChild(nameInput);
+    nameInputContainer.appendChild(continueBtn);
   });
 };
