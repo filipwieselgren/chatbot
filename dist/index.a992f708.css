@@ -12,8 +12,8 @@
 }
 
 .bot-container {
-  height: 100px;
-  width: 100px;
+  height: 250px;
+  width: 250px;
 }
 
 .bot-box {
@@ -22,6 +22,10 @@
   border: 1px solid red;
   border-radius: 5px;
   margin: 0 20px 50px 0;
+}
+
+.bot-img {
+  height: 100%;
 }
 
 /*# sourceMappingURL=index.a992f708.css.map */

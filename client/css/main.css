@@ -12,8 +12,8 @@
 }
 
 .bot-container {
-  height: 100px;
-  width: 100px;
+  height: 250px;
+  width: 250px;
 }
 
 .bot-box {
@@ -22,4 +22,8 @@
   height: 80vh;
   width: 80%;
   margin: 0px 20px 50px 0px;
+}
+
+.bot-img {
+  height: 100%;
 }

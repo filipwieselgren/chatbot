@@ -21,7 +21,8 @@ export const loadBotImg = () => {
   ) as HTMLImageElement;
 
   botImg.className = "bot-img";
-  botImg.src = "./public/images/chatbot.png";
+  botImg.alt = "An image on a robot";
+  botImg.src = "../public/images/chatbot.png";
 
   document.body.appendChild(mainContainer);
   mainContainer.appendChild(botBox);
