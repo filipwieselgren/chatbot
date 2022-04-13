@@ -40,4 +40,11 @@
   margin-top: 10px;
   border: 1px solid black;
   background-color: #cee0e0;
+  transition: 0.2s ease-in-out 0s;
+  font-size: 1rem;
+}
+
+.close-bot-btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }
