@@ -30,7 +30,7 @@ export const createBotText = (
 
   firstMsg.className = "first-msg";
   firstMsg.innerText =
-    "Great to have you hear! I will put you in touch with a real person now.";
+    "Glad to have you hear! I will put you in touch with a real person now.";
 
   const secondMsg: HTMLDivElement = document.createElement(
     "div"

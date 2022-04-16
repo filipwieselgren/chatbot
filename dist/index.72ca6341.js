@@ -632,7 +632,7 @@ const createBotText = (activeBot, closeBotBtn)=>{
     openBotImg.alt = "Image of a robot";
     const firstMsg = document.createElement("div");
     firstMsg.className = "first-msg";
-    firstMsg.innerText = "Great to have you hear! I will put you in touch with a real person now.";
+    firstMsg.innerText = "Glad to have you hear! I will put you in touch with a real person now.";
     const secondMsg = document.createElement("div");
     secondMsg.className = "second-msg";
     secondMsg.innerText = "But before I do that please tell me your name.";
