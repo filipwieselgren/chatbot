@@ -529,9 +529,6 @@ parcelHelpers.export(exports, "loadBotImg", ()=>loadBotImg
 const loadBotImg = ()=>{
     const mainContainer = document.createElement("div");
     mainContainer.className = "main-container";
-    const chatBox = document.createElement("div");
-    chatBox.className = "chat-box";
-    chatBox.style.display = "none";
     const botContainer = document.createElement("div");
     botContainer.className = "bot-container";
     const botImg = document.createElement("img");
@@ -539,7 +536,6 @@ const loadBotImg = ()=>{
     botImg.alt = "An image on a robot";
     botImg.src = "../public/images/chatbot.png";
     document.body.appendChild(mainContainer);
-    mainContainer.appendChild(chatBox);
     mainContainer.appendChild(botContainer);
     botContainer.appendChild(botImg);
 };
@@ -579,45 +575,83 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "startBot", ()=>startBot
 );
+var _closebot = require("./closebot");
+var _createbottext = require("./createbottext");
 const startBot = ()=>{
     const getBot = document.querySelector(".bot-container");
-    getBot.addEventListener("click", ()=>{
-        const activeBot = document.querySelector(".chat-box");
-        const removeBotImg = document.querySelector(".bot-container");
-        removeBotImg.style.display = "none";
-        activeBot.style.display = "block";
-        const chatHtml = document.createElement("div");
-        chatHtml.className = "chat-html";
-        const closeBotBtn = document.createElement("button");
-        closeBotBtn.className = "close-bot-btn";
-        closeBotBtn.innerText = "Close me";
-        const openBotImg = document.createElement("img");
-        openBotImg.className = "open-bot-img";
-        openBotImg.src = "../public/images/chatbot-open.png";
-        openBotImg.alt = "Image of a robot";
-        const firstMsg = document.createElement("div");
-        firstMsg.className = "first-msg";
-        firstMsg.innerText = "Great to have you hear! I will put you in touch with a real person now.";
-        const secondMsg = document.createElement("div");
-        secondMsg.className = "second-msg";
-        secondMsg.innerText = "But before I do that please tell me your name.";
-        const nameInputContainer = document.createElement("div");
-        nameInputContainer.className = "name-input-container";
-        const nameInput = document.createElement("input");
-        nameInput.className = "name-input";
-        nameInput.placeholder = "Write your name here...";
-        const continueBtn = document.createElement("button");
-        continueBtn.className = "continue-btn";
-        continueBtn.innerText = "Continue";
-        activeBot.appendChild(chatHtml);
-        activeBot.appendChild(closeBotBtn);
-        activeBot.appendChild(openBotImg);
-        chatHtml.appendChild(firstMsg);
-        chatHtml.appendChild(secondMsg);
-        chatHtml.appendChild(nameInputContainer);
-        nameInputContainer.appendChild(nameInput);
-        nameInputContainer.appendChild(continueBtn);
+    const main = document.querySelector(".main-container");
+    const chatBox = document.createElement("div");
+    chatBox.className = "chat-box";
+    const closeBotBtn = document.createElement("button");
+    closeBotBtn.className = "close-bot-btn";
+    closeBotBtn.innerText = "Close me";
+    closeBotBtn.style.display = "none";
+    closeBotBtn.addEventListener("click", ()=>{
+        _closebot.closeBot();
     });
+    getBot.appendChild(closeBotBtn);
+    main.appendChild(chatBox);
+    const activeBot = document.querySelector(".chat-box");
+    activeBot.style.display = "none";
+    getBot.addEventListener("click", ()=>{
+        _createbottext.createBotText(activeBot, closeBotBtn);
+    });
+};
+
+},{"./closebot":"7IePD","./createbottext":"kntC0","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"7IePD":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "closeBot", ()=>closeBot
+);
+var _loadbotimg = require("./loadbotimg");
+var _startbot = require("./startbot");
+const closeBot = ()=>{
+    const getChatBox = document.querySelector(".chat-box");
+    getChatBox.remove();
+    const removeMainContainer = document.querySelector(".main-container");
+    removeMainContainer.remove();
+    _loadbotimg.loadBotImg();
+    _startbot.startBot();
+};
+
+},{"./loadbotimg":"li0yS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./startbot":"1YQ8J"}],"kntC0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "createBotText", ()=>createBotText
+);
+const createBotText = (activeBot, closeBotBtn)=>{
+    const removeBotImg = document.querySelector(".bot-container");
+    removeBotImg.style.display = "none";
+    activeBot.style.display = "block";
+    const chatHtml = document.createElement("div");
+    chatHtml.className = "chat-html";
+    closeBotBtn.style.display = "block";
+    const openBotImg = document.createElement("img");
+    openBotImg.className = "open-bot-img";
+    openBotImg.src = "../public/images/chatbot-open.png";
+    openBotImg.alt = "Image of a robot";
+    const firstMsg = document.createElement("div");
+    firstMsg.className = "first-msg";
+    firstMsg.innerText = "Great to have you hear! I will put you in touch with a real person now.";
+    const secondMsg = document.createElement("div");
+    secondMsg.className = "second-msg";
+    secondMsg.innerText = "But before I do that please tell me your name.";
+    const nameInputContainer = document.createElement("div");
+    nameInputContainer.className = "name-input-container";
+    const nameInput = document.createElement("input");
+    nameInput.className = "name-input";
+    nameInput.placeholder = "Write your name here...";
+    const continueBtn = document.createElement("button");
+    continueBtn.className = "continue-btn";
+    continueBtn.innerText = "Continue";
+    activeBot.appendChild(chatHtml);
+    activeBot.appendChild(closeBotBtn);
+    activeBot.appendChild(openBotImg);
+    chatHtml.appendChild(firstMsg);
+    chatHtml.appendChild(secondMsg);
+    chatHtml.appendChild(nameInputContainer);
+    nameInputContainer.appendChild(nameInput);
+    nameInputContainer.appendChild(continueBtn);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
