@@ -1,3 +1,5 @@
+import { startChat } from "./startchat";
+
 export const createBotText = (
   activeBot: HTMLDivElement,
   closeBotBtn: HTMLButtonElement
@@ -63,6 +65,17 @@ export const createBotText = (
 
   continueBtn.className = "continue-btn";
   continueBtn.innerText = "Continue";
+
+  continueBtn.addEventListener("click", (e) => {
+    startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && nameInput.value) {
+      startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+      console.log("klick");
+    }
+  });
 
   activeBot.appendChild(chatHtml);
   activeBot.appendChild(closeBotBtn);

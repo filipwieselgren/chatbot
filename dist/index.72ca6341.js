@@ -619,6 +619,7 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBotText", ()=>createBotText
 );
+var _startchat = require("./startchat");
 const createBotText = (activeBot, closeBotBtn)=>{
     const removeBotImg = document.querySelector(".bot-container");
     removeBotImg.style.display = "none";
@@ -646,6 +647,15 @@ const createBotText = (activeBot, closeBotBtn)=>{
     const continueBtn = document.createElement("button");
     continueBtn.className = "continue-btn";
     continueBtn.innerText = "Continue";
+    continueBtn.addEventListener("click", (e)=>{
+        _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+    });
+    document.addEventListener("keydown", function(e) {
+        if (e.key === "Enter" && nameInput.value) {
+            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+            console.log("klick");
+        }
+    });
     activeBot.appendChild(chatHtml);
     activeBot.appendChild(closeBotBtn);
     activeBot.appendChild(openBotImgContainer);
@@ -656,6 +666,18 @@ const createBotText = (activeBot, closeBotBtn)=>{
     nameInputContainer.appendChild(nameInput);
     nameInputContainer.appendChild(continueBtn);
 };
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./startchat":"jOhx4"}],"jOhx4":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "startChat", ()=>startChat
+);
+function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
+    const getNameValue = document.querySelector(".name-input");
+    firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
+    secondMsg.remove();
+    nameInputContainer.remove();
+}
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
 
