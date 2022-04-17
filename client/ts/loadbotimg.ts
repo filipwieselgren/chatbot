@@ -17,6 +17,14 @@ export const loadBotImg = () => {
   botImg.alt = "An image on a robot";
   botImg.src = "../public/images/chatbot.png";
 
+  botContainer.addEventListener("mouseover", () => {
+    botImg.src = "../public/images/chatbot-bh.png";
+    botContainer.style.cursor = "pointer";
+  });
+  botContainer.addEventListener("mouseout", () => {
+    botImg.src = "../public/images/chatbot.png";
+  });
+
   document.body.appendChild(mainContainer);
   mainContainer.appendChild(botContainer);
   botContainer.appendChild(botImg);

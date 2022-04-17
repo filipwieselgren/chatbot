@@ -70,7 +70,7 @@ export const createBotText = (
     if (nameInput.value) {
       startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
       openBotImg.classList.remove("change-bot-width");
-      openBotImg.classList.toggle("open-bot-img");
+      openBotImg.classList.add("open-bot-img");
       openBotImg.src = "../public/images/chatbot-open.png";
       firstMsg.style.border = "1px solid #cee0e0";
       openBotImgContainer.appendChild(openBotImg);
@@ -80,7 +80,8 @@ export const createBotText = (
       firstMsg.style.border = "none";
       secondMsg.innerText = "";
       secondMsg.style.border = "none";
-      openBotImg.classList.toggle("change-bot-width");
+      openBotImg.classList.remove("open-bot-img");
+      openBotImg.classList.add("change-bot-width");
       openBotImgContainer.appendChild(openBotImg);
     }
   });
