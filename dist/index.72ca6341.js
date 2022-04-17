@@ -648,12 +648,40 @@ const createBotText = (activeBot, closeBotBtn)=>{
     continueBtn.className = "continue-btn";
     continueBtn.innerText = "Continue";
     continueBtn.addEventListener("click", (e)=>{
-        _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+        if (nameInput.value) {
+            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+            openBotImg.classList.remove("change-bot-width");
+            openBotImg.classList.toggle("open-bot-img");
+            openBotImg.src = "../public/images/chatbot-open.png";
+            firstMsg.style.border = "1px solid #cee0e0";
+            openBotImgContainer.appendChild(openBotImg);
+        } else if (!nameInput.value) {
+            openBotImg.src = "../public/images/chatbot-no-name.png";
+            firstMsg.innerText = "";
+            firstMsg.style.border = "none";
+            secondMsg.innerText = "";
+            secondMsg.style.border = "none";
+            openBotImg.classList.toggle("change-bot-width");
+            openBotImgContainer.appendChild(openBotImg);
+        }
     });
     document.addEventListener("keydown", function(e) {
         if (e.key === "Enter" && nameInput.value) {
             _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
-            console.log("klick");
+            openBotImg.classList.remove("change-bot-width");
+            openBotImg.classList.add("open-bot-img");
+            openBotImg.src = "../public/images/chatbot-open.png";
+            firstMsg.style.border = "1px solid #cee0e0";
+            openBotImgContainer.appendChild(openBotImg);
+        } else if (e.key === "Enter" && !nameInput.value) {
+            openBotImg.src = "../public/images/chatbot-no-name.png";
+            firstMsg.innerText = "";
+            firstMsg.style.border = "none";
+            secondMsg.innerText = "";
+            secondMsg.style.border = "none";
+            openBotImg.classList.remove("open-bot-img");
+            openBotImg.classList.add("change-bot-width");
+            openBotImgContainer.appendChild(openBotImg);
         }
     });
     activeBot.appendChild(chatHtml);
@@ -667,7 +695,7 @@ const createBotText = (activeBot, closeBotBtn)=>{
     nameInputContainer.appendChild(continueBtn);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./startchat":"jOhx4"}],"jOhx4":[function(require,module,exports) {
+},{"./startchat":"jOhx4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"jOhx4":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "startChat", ()=>startChat
@@ -677,6 +705,11 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
     secondMsg.remove();
     nameInputContainer.remove();
+    const clientMessage = document.createElement("textarea");
+    clientMessage.className = "client-message";
+    const changeCloseBtnWidth = document.querySelector(".close-bot-btn");
+    changeCloseBtnWidth.classList.toggle("change-btn-width");
+    chatHtml.appendChild(clientMessage);
 }
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")

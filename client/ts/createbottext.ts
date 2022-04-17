@@ -67,13 +67,41 @@ export const createBotText = (
   continueBtn.innerText = "Continue";
 
   continueBtn.addEventListener("click", (e) => {
-    startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+    if (nameInput.value) {
+      startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+      openBotImg.classList.remove("change-bot-width");
+      openBotImg.classList.toggle("open-bot-img");
+      openBotImg.src = "../public/images/chatbot-open.png";
+      firstMsg.style.border = "1px solid #cee0e0";
+      openBotImgContainer.appendChild(openBotImg);
+    } else if (!nameInput.value) {
+      openBotImg.src = "../public/images/chatbot-no-name.png";
+      firstMsg.innerText = "";
+      firstMsg.style.border = "none";
+      secondMsg.innerText = "";
+      secondMsg.style.border = "none";
+      openBotImg.classList.toggle("change-bot-width");
+      openBotImgContainer.appendChild(openBotImg);
+    }
   });
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && nameInput.value) {
       startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
-      console.log("klick");
+      openBotImg.classList.remove("change-bot-width");
+      openBotImg.classList.add("open-bot-img");
+      openBotImg.src = "../public/images/chatbot-open.png";
+      firstMsg.style.border = "1px solid #cee0e0";
+      openBotImgContainer.appendChild(openBotImg);
+    } else if (e.key === "Enter" && !nameInput.value) {
+      openBotImg.src = "../public/images/chatbot-no-name.png";
+      firstMsg.innerText = "";
+      firstMsg.style.border = "none";
+      secondMsg.innerText = "";
+      secondMsg.style.border = "none";
+      openBotImg.classList.remove("open-bot-img");
+      openBotImg.classList.add("change-bot-width");
+      openBotImgContainer.appendChild(openBotImg);
     }
   });
 

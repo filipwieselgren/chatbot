@@ -13,4 +13,16 @@ export function startChat(
 
   secondMsg.remove();
   nameInputContainer.remove();
+
+  const clientMessage: HTMLTextAreaElement = document.createElement(
+    "textarea"
+  ) as HTMLTextAreaElement;
+
+  clientMessage.className = "client-message";
+
+  const changeCloseBtnWidth: HTMLButtonElement = document.querySelector(
+    ".close-bot-btn"
+  ) as HTMLButtonElement;
+  changeCloseBtnWidth.classList.toggle("change-btn-width");
+  chatHtml.appendChild(clientMessage);
 }
