@@ -15,6 +15,11 @@ export const startBot = () => {
 
   chatBox.className = "chat-box";
 
+  const btnContainer: HTMLDivElement = document.createElement(
+    "div"
+  ) as HTMLDivElement;
+  btnContainer.className = "btn-container";
+
   const closeBotBtn: HTMLButtonElement = document.createElement(
     "button"
   ) as HTMLButtonElement;
@@ -25,7 +30,8 @@ export const startBot = () => {
     closeBot();
   });
 
-  getBot.appendChild(closeBotBtn);
+  getBot.appendChild(btnContainer);
+  btnContainer.appendChild(closeBotBtn);
   main.appendChild(chatBox);
 
   const activeBot: HTMLDivElement = document.querySelector(

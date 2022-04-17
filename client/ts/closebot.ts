@@ -13,6 +13,12 @@ export const closeBot = () => {
   ) as HTMLDivElement;
   removeMainContainer.remove();
 
+  // const removeSendMsgBtn: HTMLButtonElement = document.querySelector(
+  //   ".send-message-btn"
+  // ) as HTMLButtonElement;
+
+  // removeSendMsgBtn.remove();
+
   loadBotImg();
   startBot();
 };

@@ -589,6 +589,8 @@ const startBot = ()=>{
     const main = document.querySelector(".main-container");
     const chatBox = document.createElement("div");
     chatBox.className = "chat-box";
+    const btnContainer = document.createElement("div");
+    btnContainer.className = "btn-container";
     const closeBotBtn = document.createElement("button");
     closeBotBtn.className = "close-bot-btn";
     closeBotBtn.innerText = "Close me";
@@ -596,7 +598,8 @@ const startBot = ()=>{
     closeBotBtn.addEventListener("click", ()=>{
         _closebot.closeBot();
     });
-    getBot.appendChild(closeBotBtn);
+    getBot.appendChild(btnContainer);
+    btnContainer.appendChild(closeBotBtn);
     main.appendChild(chatBox);
     const activeBot = document.querySelector(".chat-box");
     activeBot.style.display = "none";
@@ -617,6 +620,10 @@ const closeBot = ()=>{
     removeChatBox.remove();
     const removeMainContainer = document.querySelector(".main-container");
     removeMainContainer.remove();
+    // const removeSendMsgBtn: HTMLButtonElement = document.querySelector(
+    //   ".send-message-btn"
+    // ) as HTMLButtonElement;
+    // removeSendMsgBtn.remove();
     _loadbotimg.loadBotImg();
     _startbot.startBot();
 };
@@ -713,19 +720,20 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
     secondMsg.remove();
     nameInputContainer.remove();
-    const getBotContainer = document.querySelector(".chat-box");
+    //   const getBotContainer: HTMLDivElement = document.querySelector(
+    //     ".chat-box"
+    //   ) as HTMLDivElement;
     const clientMessage = document.createElement("textarea");
     clientMessage.className = "client-message";
-    const btnContainer = document.createElement("div");
-    btnContainer.className = "btn-container";
+    const getBtnContainer = document.querySelector(".btn-container");
     const changeCloseBtnWidth = document.querySelector(".close-bot-btn");
     changeCloseBtnWidth.classList.toggle("change-btn-width");
     const sendMessageBtn = document.createElement("button");
     sendMessageBtn.className = "send-message-btn";
     sendMessageBtn.innerText = "Send message";
-    getBotContainer.appendChild(btnContainer);
-    btnContainer.appendChild(changeCloseBtnWidth);
-    btnContainer.appendChild(sendMessageBtn);
+    //   getBotContainer.appendChild(getBtnContainer);
+    getBtnContainer.appendChild(changeCloseBtnWidth);
+    getBtnContainer.appendChild(sendMessageBtn);
     chatHtml.appendChild(clientMessage);
 }
 
