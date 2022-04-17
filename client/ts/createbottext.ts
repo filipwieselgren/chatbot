@@ -16,6 +16,12 @@ export const createBotText = (
 
   closeBotBtn.style.display = "block";
 
+  const openBotImgContainer: HTMLImageElement = document.createElement(
+    "div"
+  ) as HTMLImageElement;
+
+  openBotImgContainer.className = "open-bot-img-container";
+
   const openBotImg: HTMLImageElement = document.createElement(
     "img"
   ) as HTMLImageElement;
@@ -60,7 +66,8 @@ export const createBotText = (
 
   activeBot.appendChild(chatHtml);
   activeBot.appendChild(closeBotBtn);
-  activeBot.appendChild(openBotImg);
+  activeBot.appendChild(openBotImgContainer);
+  openBotImgContainer.appendChild(openBotImg);
 
   chatHtml.appendChild(firstMsg);
   chatHtml.appendChild(secondMsg);

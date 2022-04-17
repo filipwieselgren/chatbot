@@ -107,11 +107,19 @@
   transform: scale(1);
 }
 
-.open-bot-img {
-  width: 100px;
+.open-bot-img-container {
+  width: 80%;
+  height: 50px;
+  border: 1px solid red;
+  justify-content: flex-start;
+  margin: 0 20px 50px 0;
+  display: flex;
   position: absolute;
   bottom: 96%;
-  right: 80%;
+}
+
+.open-bot-img {
+  width: 50px;
 }
 
 /*# sourceMappingURL=index.a992f708.css.map */

@@ -626,6 +626,8 @@ const createBotText = (activeBot, closeBotBtn)=>{
     const chatHtml = document.createElement("div");
     chatHtml.className = "chat-html";
     closeBotBtn.style.display = "block";
+    const openBotImgContainer = document.createElement("div");
+    openBotImgContainer.className = "open-bot-img-container";
     const openBotImg = document.createElement("img");
     openBotImg.className = "open-bot-img";
     openBotImg.src = "../public/images/chatbot-open.png";
@@ -646,7 +648,8 @@ const createBotText = (activeBot, closeBotBtn)=>{
     continueBtn.innerText = "Continue";
     activeBot.appendChild(chatHtml);
     activeBot.appendChild(closeBotBtn);
-    activeBot.appendChild(openBotImg);
+    activeBot.appendChild(openBotImgContainer);
+    openBotImgContainer.appendChild(openBotImg);
     chatHtml.appendChild(firstMsg);
     chatHtml.appendChild(secondMsg);
     chatHtml.appendChild(nameInputContainer);
