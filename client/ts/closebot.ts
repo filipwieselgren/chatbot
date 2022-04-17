@@ -2,11 +2,11 @@ import { loadBotImg } from "./loadbotimg";
 import { startBot } from "./startbot";
 
 export const closeBot = () => {
-  const getChatBox: HTMLDivElement = document.querySelector(
+  const removeChatBox: HTMLDivElement = document.querySelector(
     ".chat-box"
   ) as HTMLDivElement;
 
-  getChatBox.remove();
+  removeChatBox.remove();
 
   const removeMainContainer: HTMLDivElement = document.querySelector(
     ".main-container"

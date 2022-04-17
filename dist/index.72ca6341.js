@@ -606,15 +606,15 @@ parcelHelpers.export(exports, "closeBot", ()=>closeBot
 var _loadbotimg = require("./loadbotimg");
 var _startbot = require("./startbot");
 const closeBot = ()=>{
-    const getChatBox = document.querySelector(".chat-box");
-    getChatBox.remove();
+    const removeChatBox = document.querySelector(".chat-box");
+    removeChatBox.remove();
     const removeMainContainer = document.querySelector(".main-container");
     removeMainContainer.remove();
     _loadbotimg.loadBotImg();
     _startbot.startBot();
 };
 
-},{"./loadbotimg":"li0yS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./startbot":"1YQ8J"}],"kntC0":[function(require,module,exports) {
+},{"./loadbotimg":"li0yS","./startbot":"1YQ8J","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kntC0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBotText", ()=>createBotText
