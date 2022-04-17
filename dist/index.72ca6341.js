@@ -622,7 +622,7 @@ parcelHelpers.export(exports, "createBotText", ()=>createBotText
 const createBotText = (activeBot, closeBotBtn)=>{
     const removeBotImg = document.querySelector(".bot-container");
     removeBotImg.style.display = "none";
-    activeBot.style.display = "block";
+    activeBot.style.display = "flex";
     const chatHtml = document.createElement("div");
     chatHtml.className = "chat-html";
     closeBotBtn.style.display = "block";

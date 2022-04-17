@@ -7,7 +7,7 @@ export const createBotText = (
   ) as HTMLDivElement;
 
   removeBotImg.style.display = "none";
-  activeBot.style.display = "block";
+  activeBot.style.display = "flex";
 
   const chatHtml: HTMLDivElement = document.createElement(
     "div"
