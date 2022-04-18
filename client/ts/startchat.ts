@@ -12,12 +12,6 @@ export function startChat(
     ".name-input"
   ) as HTMLInputElement;
 
-  firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
-  localStorage.setItem("client", JSON.stringify(getNameValue.value));
-
-  secondMsg.remove();
-  nameInputContainer.remove();
-
   const getBotContainer: HTMLDivElement = document.querySelector(
     ".chat-box"
   ) as HTMLDivElement;
@@ -25,8 +19,6 @@ export function startChat(
   const clientMessage: HTMLTextAreaElement = document.createElement(
     "textarea"
   ) as HTMLTextAreaElement;
-
-  clientMessage.className = "client-message";
 
   const getBtnContainer: HTMLDivElement = document.querySelector(
     ".btn-container"
@@ -40,12 +32,22 @@ export function startChat(
     ".send-message-btn"
   ) as HTMLButtonElement;
 
+  firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
+
+  localStorage.setItem("client", JSON.stringify(getNameValue.value));
+
+  clientMessage.className = "client-message";
+
   getSendBtn.addEventListener("click", () => {
     sendMessage();
   });
 
+  secondMsg.remove();
+  nameInputContainer.remove();
+
   changeCloseBtnWidth.classList.remove("change-btn-width");
   changeCloseBtnWidth.classList.add("change-btn-width");
+
   sendMessageBtn.style.display = "block";
 
   getBotContainer.appendChild(getBtnContainer);

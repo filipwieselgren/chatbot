@@ -6,16 +6,13 @@ export const closeBot = () => {
     ".chat-box"
   ) as HTMLDivElement;
 
-  removeChatBox.remove();
-
   const removeMainContainer: HTMLDivElement = document.querySelector(
     ".main-container"
   ) as HTMLDivElement;
-  removeMainContainer.remove();
 
-  // const removeSendMsgBtn: HTMLButtonElement = document.querySelector(
-  //   ".send-message-btn"
-  // ) as HTMLButtonElement;
+  removeChatBox.remove();
+
+  removeMainContainer.remove();
 
   loadBotImg();
   startBot();

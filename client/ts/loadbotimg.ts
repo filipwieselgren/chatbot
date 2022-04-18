@@ -2,20 +2,24 @@ export const loadBotImg = () => {
   const mainContainer: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
-  mainContainer.className = "main-container";
 
   const botContainer: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
-  botContainer.className = "bot-container";
 
   const botImg: HTMLImageElement = document.createElement(
     "img"
   ) as HTMLImageElement;
 
+  mainContainer.className = "main-container";
+
+  botContainer.className = "bot-container";
+
   botImg.className = "bot-img";
-  botImg.alt = "An image on a robot";
+
   botImg.src = "../public/images/chatbot.png";
+
+  botImg.alt = "An image on a robot";
 
   botContainer.addEventListener("mouseover", () => {
     botImg.src = "../public/images/chatbot-bh.png";
