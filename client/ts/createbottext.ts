@@ -94,7 +94,7 @@ export const createBotText = (
     }
   });
 
-  document.addEventListener("keydown", function (e) {
+  document.addEventListener("keydown", (e) => {
     if (e.key === "Enter" && nameInput.value) {
       startChat(
         e,

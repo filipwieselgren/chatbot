@@ -684,7 +684,7 @@ const createBotText = (activeBot, closeBotBtn, sendMessageBtn)=>{
             openBotImgContainer.appendChild(openBotImg);
         }
     });
-    document.addEventListener("keydown", function(e) {
+    document.addEventListener("keydown", (e)=>{
         if (e.key === "Enter" && nameInput.value) {
             _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn);
             openBotImg.classList.remove("change-bot-width");
@@ -719,9 +719,11 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "startChat", ()=>startChat
 );
+var _sendmessage = require("./sendmessage");
 function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn) {
     const getNameValue = document.querySelector(".name-input");
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
+    localStorage.setItem("client", JSON.stringify(getNameValue.value));
     secondMsg.remove();
     nameInputContainer.remove();
     const getBotContainer = document.querySelector(".chat-box");
@@ -729,6 +731,10 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMes
     clientMessage.className = "client-message";
     const getBtnContainer = document.querySelector(".btn-container");
     const changeCloseBtnWidth = document.querySelector(".close-bot-btn");
+    const getSendBtn = document.querySelector(".send-message-btn");
+    getSendBtn.addEventListener("click", ()=>{
+        _sendmessage.sendMessage();
+    });
     changeCloseBtnWidth.classList.remove("change-btn-width");
     changeCloseBtnWidth.classList.add("change-btn-width");
     sendMessageBtn.style.display = "block";
@@ -736,6 +742,20 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMes
     getBtnContainer.appendChild(changeCloseBtnWidth);
     chatHtml.appendChild(clientMessage);
 }
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./sendmessage":"llKXK"}],"llKXK":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "sendMessage", ()=>sendMessage
+);
+const sendMessage = ()=>{
+    const chatHtmlMsg = document.querySelector(".chat-html");
+    const clientMessageValue = document.querySelector(".client-message");
+    const showMsg = document.createElement("div");
+    showMsg.innerText = clientMessageValue.value;
+    chatHtmlMsg.appendChild(showMsg);
+    clientMessageValue.remove();
+};
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
 

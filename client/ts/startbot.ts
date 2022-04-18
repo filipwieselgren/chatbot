@@ -36,6 +36,7 @@ export const startBot = () => {
 
   sendMessageBtn.className = "send-message-btn";
   sendMessageBtn.innerText = "Send message";
+
   sendMessageBtn.remove();
 
   getBot.appendChild(btnContainer);

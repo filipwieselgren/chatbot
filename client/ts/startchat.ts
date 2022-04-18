@@ -1,3 +1,5 @@
+import { sendMessage } from "./sendmessage";
+
 export function startChat(
   e: any,
   chatHtml: HTMLDivElement,
@@ -11,6 +13,7 @@ export function startChat(
   ) as HTMLInputElement;
 
   firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
+  localStorage.setItem("client", JSON.stringify(getNameValue.value));
 
   secondMsg.remove();
   nameInputContainer.remove();
@@ -32,6 +35,14 @@ export function startChat(
   const changeCloseBtnWidth: HTMLButtonElement = document.querySelector(
     ".close-bot-btn"
   ) as HTMLButtonElement;
+
+  const getSendBtn: HTMLButtonElement = document.querySelector(
+    ".send-message-btn"
+  ) as HTMLButtonElement;
+
+  getSendBtn.addEventListener("click", () => {
+    sendMessage();
+  });
 
   changeCloseBtnWidth.classList.remove("change-btn-width");
   changeCloseBtnWidth.classList.add("change-btn-width");
