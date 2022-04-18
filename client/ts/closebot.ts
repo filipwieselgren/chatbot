@@ -17,8 +17,6 @@ export const closeBot = () => {
   //   ".send-message-btn"
   // ) as HTMLButtonElement;
 
-  // removeSendMsgBtn.remove();
-
   loadBotImg();
   startBot();
 };

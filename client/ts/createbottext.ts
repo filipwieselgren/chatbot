@@ -2,7 +2,8 @@ import { startChat } from "./startchat";
 
 export const createBotText = (
   activeBot: HTMLDivElement,
-  closeBotBtn: HTMLButtonElement
+  closeBotBtn: HTMLButtonElement,
+  sendMessageBtn: HTMLButtonElement
 ) => {
   const removeBotImg: HTMLDivElement = document.querySelector(
     ".bot-container"
@@ -68,7 +69,14 @@ export const createBotText = (
 
   continueBtn.addEventListener("click", (e) => {
     if (nameInput.value) {
-      startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+      startChat(
+        e,
+        chatHtml,
+        firstMsg,
+        secondMsg,
+        nameInputContainer,
+        sendMessageBtn
+      );
       openBotImg.classList.remove("change-bot-width");
       openBotImg.classList.add("open-bot-img");
       openBotImg.src = "../public/images/chatbot-open.png";
@@ -88,7 +96,14 @@ export const createBotText = (
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Enter" && nameInput.value) {
-      startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+      startChat(
+        e,
+        chatHtml,
+        firstMsg,
+        secondMsg,
+        nameInputContainer,
+        sendMessageBtn
+      );
       openBotImg.classList.remove("change-bot-width");
       openBotImg.classList.add("open-bot-img");
       openBotImg.src = "../public/images/chatbot-open.png";

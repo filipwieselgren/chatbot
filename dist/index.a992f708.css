@@ -115,10 +115,12 @@
 
 .change-btn-width {
   width: 33%;
+  order: -2;
 }
 
 .send-message-btn {
   width: 63%;
+  order: -1;
 }
 
 .send-message-btn, .change-btn-width {

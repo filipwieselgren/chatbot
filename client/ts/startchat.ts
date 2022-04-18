@@ -3,7 +3,8 @@ export function startChat(
   chatHtml: HTMLDivElement,
   firstMsg: HTMLDivElement,
   secondMsg: HTMLDivElement,
-  nameInputContainer: HTMLDivElement
+  nameInputContainer: HTMLDivElement,
+  sendMessageBtn: HTMLButtonElement
 ) {
   const getNameValue: HTMLInputElement = document.querySelector(
     ".name-input"
@@ -14,9 +15,9 @@ export function startChat(
   secondMsg.remove();
   nameInputContainer.remove();
 
-  //   const getBotContainer: HTMLDivElement = document.querySelector(
-  //     ".chat-box"
-  //   ) as HTMLDivElement;
+  const getBotContainer: HTMLDivElement = document.querySelector(
+    ".chat-box"
+  ) as HTMLDivElement;
 
   const clientMessage: HTMLTextAreaElement = document.createElement(
     "textarea"
@@ -31,17 +32,12 @@ export function startChat(
   const changeCloseBtnWidth: HTMLButtonElement = document.querySelector(
     ".close-bot-btn"
   ) as HTMLButtonElement;
-  changeCloseBtnWidth.classList.toggle("change-btn-width");
 
-  const sendMessageBtn: HTMLButtonElement = document.createElement(
-    "button"
-  ) as HTMLButtonElement;
+  changeCloseBtnWidth.classList.remove("change-btn-width");
+  changeCloseBtnWidth.classList.add("change-btn-width");
+  sendMessageBtn.style.display = "block";
 
-  sendMessageBtn.className = "send-message-btn";
-  sendMessageBtn.innerText = "Send message";
-
-  //   getBotContainer.appendChild(getBtnContainer);
+  getBotContainer.appendChild(getBtnContainer);
   getBtnContainer.appendChild(changeCloseBtnWidth);
-  getBtnContainer.appendChild(sendMessageBtn);
   chatHtml.appendChild(clientMessage);
 }

@@ -598,13 +598,18 @@ const startBot = ()=>{
     closeBotBtn.addEventListener("click", ()=>{
         _closebot.closeBot();
     });
+    const sendMessageBtn = document.createElement("button");
+    sendMessageBtn.className = "send-message-btn";
+    sendMessageBtn.innerText = "Send message";
+    sendMessageBtn.remove();
     getBot.appendChild(btnContainer);
     btnContainer.appendChild(closeBotBtn);
+    btnContainer.appendChild(sendMessageBtn);
     main.appendChild(chatBox);
     const activeBot = document.querySelector(".chat-box");
     activeBot.style.display = "none";
     getBot.addEventListener("click", ()=>{
-        _createbottext.createBotText(activeBot, closeBotBtn);
+        _createbottext.createBotText(activeBot, closeBotBtn, sendMessageBtn);
     });
 };
 
@@ -623,7 +628,6 @@ const closeBot = ()=>{
     // const removeSendMsgBtn: HTMLButtonElement = document.querySelector(
     //   ".send-message-btn"
     // ) as HTMLButtonElement;
-    // removeSendMsgBtn.remove();
     _loadbotimg.loadBotImg();
     _startbot.startBot();
 };
@@ -634,7 +638,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createBotText", ()=>createBotText
 );
 var _startchat = require("./startchat");
-const createBotText = (activeBot, closeBotBtn)=>{
+const createBotText = (activeBot, closeBotBtn, sendMessageBtn)=>{
     const removeBotImg = document.querySelector(".bot-container");
     removeBotImg.style.display = "none";
     activeBot.style.display = "flex";
@@ -663,7 +667,7 @@ const createBotText = (activeBot, closeBotBtn)=>{
     continueBtn.innerText = "Continue";
     continueBtn.addEventListener("click", (e)=>{
         if (nameInput.value) {
-            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn);
             openBotImg.classList.remove("change-bot-width");
             openBotImg.classList.add("open-bot-img");
             openBotImg.src = "../public/images/chatbot-open.png";
@@ -682,7 +686,7 @@ const createBotText = (activeBot, closeBotBtn)=>{
     });
     document.addEventListener("keydown", function(e) {
         if (e.key === "Enter" && nameInput.value) {
-            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer);
+            _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn);
             openBotImg.classList.remove("change-bot-width");
             openBotImg.classList.add("open-bot-img");
             openBotImg.src = "../public/images/chatbot-open.png";
@@ -715,25 +719,21 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "startChat", ()=>startChat
 );
-function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
+function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn) {
     const getNameValue = document.querySelector(".name-input");
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
     secondMsg.remove();
     nameInputContainer.remove();
-    //   const getBotContainer: HTMLDivElement = document.querySelector(
-    //     ".chat-box"
-    //   ) as HTMLDivElement;
+    const getBotContainer = document.querySelector(".chat-box");
     const clientMessage = document.createElement("textarea");
     clientMessage.className = "client-message";
     const getBtnContainer = document.querySelector(".btn-container");
     const changeCloseBtnWidth = document.querySelector(".close-bot-btn");
-    changeCloseBtnWidth.classList.toggle("change-btn-width");
-    const sendMessageBtn = document.createElement("button");
-    sendMessageBtn.className = "send-message-btn";
-    sendMessageBtn.innerText = "Send message";
-    //   getBotContainer.appendChild(getBtnContainer);
+    changeCloseBtnWidth.classList.remove("change-btn-width");
+    changeCloseBtnWidth.classList.add("change-btn-width");
+    sendMessageBtn.style.display = "block";
+    getBotContainer.appendChild(getBtnContainer);
     getBtnContainer.appendChild(changeCloseBtnWidth);
-    getBtnContainer.appendChild(sendMessageBtn);
     chatHtml.appendChild(clientMessage);
 }
 

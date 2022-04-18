@@ -30,8 +30,17 @@ export const startBot = () => {
     closeBot();
   });
 
+  const sendMessageBtn: HTMLButtonElement = document.createElement(
+    "button"
+  ) as HTMLButtonElement;
+
+  sendMessageBtn.className = "send-message-btn";
+  sendMessageBtn.innerText = "Send message";
+  sendMessageBtn.remove();
+
   getBot.appendChild(btnContainer);
   btnContainer.appendChild(closeBotBtn);
+  btnContainer.appendChild(sendMessageBtn);
   main.appendChild(chatBox);
 
   const activeBot: HTMLDivElement = document.querySelector(
@@ -41,6 +50,6 @@ export const startBot = () => {
   activeBot.style.display = "none";
 
   getBot.addEventListener("click", () => {
-    createBotText(activeBot, closeBotBtn);
+    createBotText(activeBot, closeBotBtn, sendMessageBtn);
   });
 };
