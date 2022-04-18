@@ -86,6 +86,9 @@ export const createBotText = (
         nameInputContainer,
         sendMessageBtn
       );
+
+      chatHtml.classList.remove("chat-html");
+      chatHtml.classList.add("chat-html-end");
       openBotImg.classList.remove("change-bot-width");
       openBotImg.classList.add("open-bot-img");
       openBotImg.src = "../public/images/chatbot-open.png";
@@ -113,6 +116,8 @@ export const createBotText = (
         nameInputContainer,
         sendMessageBtn
       );
+      chatHtml.classList.remove("chat-html");
+      chatHtml.classList.add("chat-html-end");
       openBotImg.classList.remove("change-bot-width");
       openBotImg.classList.add("open-bot-img");
       openBotImg.src = "../public/images/chatbot-open.png";

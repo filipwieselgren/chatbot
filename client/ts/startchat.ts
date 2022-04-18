@@ -36,6 +36,12 @@ export function startChat(
 
   localStorage.setItem("client", JSON.stringify(getNameValue.value));
 
+  // const clientMessageContainer: HTMLDivElement = document.createElement(
+  //   "div"
+  // ) as HTMLDivElement;
+
+  // clientMessageContainer.className = "client-message-container"; -- Testa att lägga det här i createbottext eventlisteners
+
   clientMessage.className = "client-message";
 
   getSendBtn.addEventListener("click", () => {
@@ -52,5 +58,6 @@ export function startChat(
 
   getBotContainer.appendChild(getBtnContainer);
   getBtnContainer.appendChild(changeCloseBtnWidth);
-  chatHtml.appendChild(clientMessage);
+  // chatHtml.appendChild(clientMessageContainer);
+  // clientMessageContainer.appendChild(clientMessage);
 }

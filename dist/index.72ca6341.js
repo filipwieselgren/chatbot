@@ -665,6 +665,8 @@ const createBotText = (activeBot, closeBotBtn, sendMessageBtn)=>{
     continueBtn.addEventListener("click", (e)=>{
         if (nameInput.value) {
             _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn);
+            chatHtml.classList.remove("chat-html");
+            chatHtml.classList.add("chat-html-end");
             openBotImg.classList.remove("change-bot-width");
             openBotImg.classList.add("open-bot-img");
             openBotImg.src = "../public/images/chatbot-open.png";
@@ -684,6 +686,8 @@ const createBotText = (activeBot, closeBotBtn, sendMessageBtn)=>{
     document.addEventListener("keydown", (e)=>{
         if (e.key === "Enter" && nameInput.value) {
             _startchat.startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMessageBtn);
+            chatHtml.classList.remove("chat-html");
+            chatHtml.classList.add("chat-html-end");
             openBotImg.classList.remove("change-bot-width");
             openBotImg.classList.add("open-bot-img");
             openBotImg.src = "../public/images/chatbot-open.png";
@@ -726,6 +730,10 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMes
     const getSendBtn = document.querySelector(".send-message-btn");
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
     localStorage.setItem("client", JSON.stringify(getNameValue.value));
+    // const clientMessageContainer: HTMLDivElement = document.createElement(
+    //   "div"
+    // ) as HTMLDivElement;
+    // clientMessageContainer.className = "client-message-container"; -- Testa att lägga det här i createbottext eventlisteners
     clientMessage.className = "client-message";
     getSendBtn.addEventListener("click", ()=>{
         _sendmessage.sendMessage(clientMessage);
@@ -737,7 +745,8 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMes
     sendMessageBtn.style.display = "block";
     getBotContainer.appendChild(getBtnContainer);
     getBtnContainer.appendChild(changeCloseBtnWidth);
-    chatHtml.appendChild(clientMessage);
+// chatHtml.appendChild(clientMessageContainer);
+// clientMessageContainer.appendChild(clientMessage);
 }
 
 },{"./sendmessage":"llKXK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"llKXK":[function(require,module,exports) {
@@ -746,18 +755,21 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sendMessage", ()=>sendMessage
 );
 const sendMessage = (clientMessage)=>{
-    const chatHtmlMsg = document.querySelector(".chat-html");
+    const chatHtmlMsg = document.querySelector(".chat-html-end");
     const clientMessageValue = document.querySelector(".client-message");
     const showMsg = document.createElement("div");
-    const appendChatHtml = document.querySelector(".chat-html");
+    const appendChatHtml = document.querySelector(".chat-html-end");
+    const showMsgContainer = document.createElement("div");
+    showMsgContainer.className = "show-msg-container";
     showMsg.className = "show-msg";
     const getClientMessage = clientMessageValue.value;
     if (getClientMessage) {
         showMsg.innerText = getClientMessage.toString();
-        chatHtmlMsg.appendChild(showMsg);
+        clientMessage.innerText = "Write here...";
+        chatHtmlMsg.appendChild(showMsgContainer);
+        showMsgContainer.appendChild(showMsg);
         clientMessageValue.remove();
         appendChatHtml.appendChild(clientMessage);
-        clientMessage.innerText = "";
     } else if (!getClientMessage) return;
 };
 
