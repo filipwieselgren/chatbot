@@ -11,7 +11,9 @@ export const sendMessage = () => {
     "div"
   ) as HTMLDivElement;
 
-  showMsg.innerText = clientMessageValue.value;
+  const clientMessage: String = clientMessageValue.value;
+
+  showMsg.innerText = clientMessage.toString();
 
   chatHtmlMsg.appendChild(showMsg);
 
