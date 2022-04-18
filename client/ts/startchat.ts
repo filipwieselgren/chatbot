@@ -39,7 +39,7 @@ export function startChat(
   clientMessage.className = "client-message";
 
   getSendBtn.addEventListener("click", () => {
-    sendMessage();
+    sendMessage(clientMessage);
   });
 
   secondMsg.remove();

@@ -728,7 +728,7 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer, sendMes
     localStorage.setItem("client", JSON.stringify(getNameValue.value));
     clientMessage.className = "client-message";
     getSendBtn.addEventListener("click", ()=>{
-        _sendmessage.sendMessage();
+        _sendmessage.sendMessage(clientMessage);
     });
     secondMsg.remove();
     nameInputContainer.remove();
@@ -745,14 +745,20 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sendMessage", ()=>sendMessage
 );
-const sendMessage = ()=>{
+const sendMessage = (clientMessage)=>{
     const chatHtmlMsg = document.querySelector(".chat-html");
     const clientMessageValue = document.querySelector(".client-message");
     const showMsg = document.createElement("div");
-    const clientMessage = clientMessageValue.value;
-    showMsg.innerText = clientMessage.toString();
-    chatHtmlMsg.appendChild(showMsg);
-    clientMessageValue.remove();
+    const appendChatHtml = document.querySelector(".chat-html");
+    showMsg.className = "show-msg";
+    const getClientMessage = clientMessageValue.value;
+    if (getClientMessage) {
+        showMsg.innerText = getClientMessage.toString();
+        chatHtmlMsg.appendChild(showMsg);
+        clientMessageValue.remove();
+        appendChatHtml.appendChild(clientMessage);
+        clientMessage.innerText = "";
+    } else if (!getClientMessage) return;
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["5Rwxq","hhMFS"], "hhMFS", "parcelRequire8566")
