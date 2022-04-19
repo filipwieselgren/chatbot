@@ -15,17 +15,13 @@ export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
     ".chat-html-end"
   ) as HTMLDivElement;
 
-  // const showMsgContainer: HTMLDivElement = document.createElement(
-  //   "div"
-  // ) as HTMLDivElement;
-
-  // showMsgContainer.className = "show-msg-container";
-  // chatHtmlMsg.appendChild(showMsgContainer);
   const showMsgInContainer: HTMLDivElement = document.querySelector(
     ".show-msg-container"
   ) as HTMLDivElement;
 
   showMsg.className = "show-msg";
+
+  const getNameFromLocal = JSON.parse(localStorage.getItem("client") || "");
 
   const getClientMessage: String = clientMessageValue.value;
 

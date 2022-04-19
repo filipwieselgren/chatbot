@@ -11,9 +11,6 @@ export function startChat(
     ".send-message-btn"
   ) as HTMLButtonElement;
 
-  // const chatHtmlMsg: HTMLDivElement = document.querySelector(
-  //   ".chat-html-end"
-  // ) as HTMLDivElement;
   const getShowMsgContainer: HTMLDivElement = document.querySelector(
     ".show-msg-container"
   ) as HTMLDivElement;
@@ -60,7 +57,7 @@ export function startChat(
 
   firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
 
-  // localStorage.setItem("client", JSON.stringify(getNameValue.value));
+  localStorage.setItem("client", JSON.stringify(getNameValue.value));
 
   const clientMessageContainer: HTMLDivElement = document.createElement(
     "div"

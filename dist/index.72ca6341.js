@@ -718,9 +718,6 @@ parcelHelpers.export(exports, "startChat", ()=>startChat
 var _sendmessage = require("./sendmessage");
 function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
     const getSendMessageBtn = document.querySelector(".send-message-btn");
-    // const chatHtmlMsg: HTMLDivElement = document.querySelector(
-    //   ".chat-html-end"
-    // ) as HTMLDivElement;
     const getShowMsgContainer = document.querySelector(".show-msg-container");
     if (getShowMsgContainer === null) {
         const showMsgContainer = document.createElement("div");
@@ -742,7 +739,7 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
         });
     }
     firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
-    // localStorage.setItem("client", JSON.stringify(getNameValue.value));
+    localStorage.setItem("client", JSON.stringify(getNameValue.value));
     const clientMessageContainer = document.createElement("div");
     clientMessageContainer.className = "client-message-container";
     clientMessage.className = "client-message";
@@ -766,13 +763,9 @@ const sendMessage = (clientMessage)=>{
     const clientMessageValue = document.querySelector(".client-message");
     const showMsg = document.createElement("div");
     const appendChatHtml = document.querySelector(".chat-html-end");
-    // const showMsgContainer: HTMLDivElement = document.createElement(
-    //   "div"
-    // ) as HTMLDivElement;
-    // showMsgContainer.className = "show-msg-container";
-    // chatHtmlMsg.appendChild(showMsgContainer);
     const showMsgInContainer = document.querySelector(".show-msg-container");
     showMsg.className = "show-msg";
+    const getNameFromLocal = JSON.parse(localStorage.getItem("client") || "");
     const getClientMessage = clientMessageValue.value;
     if (getClientMessage) {
         showMsg.innerText = getClientMessage.toString();
