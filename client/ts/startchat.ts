@@ -5,9 +5,27 @@ export function startChat(
   chatHtml: HTMLDivElement,
   firstMsg: HTMLDivElement,
   secondMsg: HTMLDivElement,
-  nameInputContainer: HTMLDivElement,
-  sendMessageBtn: HTMLButtonElement
+  nameInputContainer: HTMLDivElement
 ) {
+  const getSendMessageBtn: HTMLButtonElement = document.querySelector(
+    ".send-message-btn"
+  ) as HTMLButtonElement;
+
+  // const chatHtmlMsg: HTMLDivElement = document.querySelector(
+  //   ".chat-html-end"
+  // ) as HTMLDivElement;
+  const getShowMsgContainer: HTMLDivElement = document.querySelector(
+    ".show-msg-container"
+  ) as HTMLDivElement;
+
+  if (getShowMsgContainer === null) {
+    const showMsgContainer: HTMLDivElement = document.createElement(
+      "div"
+    ) as HTMLDivElement;
+    chatHtml.appendChild(showMsgContainer);
+    showMsgContainer.className = "show-msg-container";
+  }
+
   const getNameValue: HTMLInputElement = document.querySelector(
     ".name-input"
   ) as HTMLInputElement;
@@ -28,25 +46,29 @@ export function startChat(
     ".close-bot-btn"
   ) as HTMLButtonElement;
 
-  const getSendBtn: HTMLButtonElement = document.querySelector(
-    ".send-message-btn"
-  ) as HTMLButtonElement;
+  if (getSendMessageBtn === null) {
+    const sendMessageBtn: HTMLButtonElement = document.createElement(
+      "button"
+    ) as HTMLButtonElement;
+    sendMessageBtn.className = "send-message-btn";
+    sendMessageBtn.innerText = "Send message";
+    getBtnContainer.appendChild(sendMessageBtn);
+    sendMessageBtn.addEventListener("click", () => {
+      sendMessage(clientMessage);
+    });
+  }
 
   firstMsg.innerText = `Nice to meet you ${getNameValue.value}! How can I help you?`;
 
-  localStorage.setItem("client", JSON.stringify(getNameValue.value));
+  // localStorage.setItem("client", JSON.stringify(getNameValue.value));
 
-  // const clientMessageContainer: HTMLDivElement = document.createElement(
-  //   "div"
-  // ) as HTMLDivElement;
+  const clientMessageContainer: HTMLDivElement = document.createElement(
+    "div"
+  ) as HTMLDivElement;
 
-  // clientMessageContainer.className = "client-message-container"; -- Testa att lägga det här i createbottext eventlisteners
+  clientMessageContainer.className = "client-message-container";
 
   clientMessage.className = "client-message";
-
-  getSendBtn.addEventListener("click", () => {
-    sendMessage(clientMessage);
-  });
 
   secondMsg.remove();
   nameInputContainer.remove();
@@ -54,10 +76,9 @@ export function startChat(
   changeCloseBtnWidth.classList.remove("change-btn-width");
   changeCloseBtnWidth.classList.add("change-btn-width");
 
-  sendMessageBtn.style.display = "block";
-
   getBotContainer.appendChild(getBtnContainer);
   getBtnContainer.appendChild(changeCloseBtnWidth);
-  // chatHtml.appendChild(clientMessageContainer);
+
+  chatHtml.appendChild(clientMessage);
   // clientMessageContainer.appendChild(clientMessage);
 }

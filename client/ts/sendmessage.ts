@@ -15,11 +15,15 @@ export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
     ".chat-html-end"
   ) as HTMLDivElement;
 
-  const showMsgContainer: HTMLDivElement = document.createElement(
-    "div"
-  ) as HTMLDivElement;
+  // const showMsgContainer: HTMLDivElement = document.createElement(
+  //   "div"
+  // ) as HTMLDivElement;
 
-  showMsgContainer.className = "show-msg-container";
+  // showMsgContainer.className = "show-msg-container";
+  // chatHtmlMsg.appendChild(showMsgContainer);
+  const showMsgInContainer: HTMLDivElement = document.querySelector(
+    ".show-msg-container"
+  ) as HTMLDivElement;
 
   showMsg.className = "show-msg";
 
@@ -27,9 +31,8 @@ export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
 
   if (getClientMessage) {
     showMsg.innerText = getClientMessage.toString();
-    clientMessage.innerText = "Write here...";
-    chatHtmlMsg.appendChild(showMsgContainer);
-    showMsgContainer.appendChild(showMsg);
+    clientMessage.innerText = "";
+    showMsgInContainer.appendChild(showMsg);
     clientMessageValue.remove();
     clientMessage;
     appendChatHtml.appendChild(clientMessage);

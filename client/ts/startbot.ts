@@ -21,27 +21,16 @@ export const startBot = () => {
     "button"
   ) as HTMLButtonElement;
 
-  const sendMessageBtn: HTMLButtonElement = document.createElement(
-    "button"
-  ) as HTMLButtonElement;
-
   chatBox.className = "chat-box";
 
   btnContainer.className = "btn-container";
 
   closeBotBtn.className = "close-bot-btn";
 
-  sendMessageBtn.className = "send-message-btn";
-
   closeBotBtn.innerText = "Close me";
-
-  sendMessageBtn.innerText = "Send message";
-
-  sendMessageBtn.remove();
 
   getBot.appendChild(btnContainer);
   btnContainer.appendChild(closeBotBtn);
-  btnContainer.appendChild(sendMessageBtn);
   main.appendChild(chatBox);
 
   const activeBot: HTMLDivElement = document.querySelector(
@@ -54,7 +43,8 @@ export const startBot = () => {
   closeBotBtn.addEventListener("click", () => {
     closeBot();
   });
+
   getBot.addEventListener("click", () => {
-    createBotText(activeBot, closeBotBtn, sendMessageBtn);
+    createBotText(activeBot, closeBotBtn);
   });
 };
