@@ -756,7 +756,7 @@ function startChat(e, chatHtml, firstMsg, secondMsg, nameInputContainer) {
 // clientMessageContainer.appendChild(clientMessage);
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./sendmessage":"llKXK"}],"llKXK":[function(require,module,exports) {
+},{"./sendmessage":"llKXK","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"llKXK":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sendMessage", ()=>sendMessage
