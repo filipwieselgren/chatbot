@@ -27,7 +27,8 @@ export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
 
   if (getClientMessage) {
     showMsg.innerText = getClientMessage.toString();
-    clientMessage.innerText = "";
+    // clientMessage.innerText = "";
+    clientMessageValue.value = "";
     showMsgInContainer.appendChild(showMsg);
     clientMessageValue.remove();
     clientMessage;

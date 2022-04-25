@@ -769,7 +769,8 @@ const sendMessage = (clientMessage)=>{
     const getClientMessage = clientMessageValue.value;
     if (getClientMessage) {
         showMsg.innerText = getClientMessage.toString();
-        clientMessage.innerText = "";
+        // clientMessage.innerText = "";
+        clientMessageValue.value = "";
         showMsgInContainer.appendChild(showMsg);
         clientMessageValue.remove();
         appendChatHtml.appendChild(clientMessage);
