@@ -5,8 +5,46 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+  position: relative;
+}
+
+.navbar {
+  height: 100px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nav-txt {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.nav-atag {
+  width: 100px;
+}
+
+.nav-btn {
+  width: 100%;
+  text-align: center;
+  background-color: #cee0e0;
+  border: 1px solid #000;
+  border-radius: 10px;
+  align-self: flex-end;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: .8rem;
+  transition: all .2s ease-in-out;
+}
+
 .main-container {
-  height: 100vh;
+  height: 95vh;
   justify-content: flex-end;
   align-items: flex-end;
   display: flex;
