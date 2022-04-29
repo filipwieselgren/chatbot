@@ -1,3 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+.admin-img-login-con {
+  height: 50vh;
+  border: 2px solid red;
+}
+
+.admin-img-login {
+  width: 80%;
+}
+
+.admin-form-con {
+  height: 50vh;
+  border: 2px solid #00f;
+}
 
 /*# sourceMappingURL=admin.6653f744.css.map */

@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.admin-img-login-con {
+  border: 2px solid red;
+  height: 50vh;
+}
+
+.admin-img-login {
+  width: 80%;
+}
+
+.admin-form-con {
+  border: 2px solid blue;
+  height: 50vh;
+}
