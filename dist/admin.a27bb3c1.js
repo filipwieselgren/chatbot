@@ -566,7 +566,17 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createAccount", ()=>createAccount
 );
 const createAccount = ()=>{
-    console.log("klick");
+    const getAdminImgLoginCon = document.querySelector(".admin-img-login-con");
+    const getAdminImgLogin = document.querySelector(".admin-img-login");
+    const getAdminForm = document.querySelector(".admin-form");
+    getAdminImgLogin.src = "../public/images/chatbot-create-account.png";
+    getAdminImgLogin.className = "center-bot-img";
+    getAdminImgLoginCon.classList.remove("admin-img-login-con");
+    getAdminImgLoginCon.classList.add("center-bot");
+    getAdminForm.remove();
+    // adminImgLoginCon.className = "admin-img-login-con";
+    // adminImgLogin.className = "admin-img-login";
+    getAdminImgLoginCon.appendChild(getAdminImgLogin);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {

@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+.center-bot {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.center-bot-img {
+  width: 80%;
+}
 .admin-img-login {
   width: 80%;
 }
@@ -53,9 +62,17 @@
   border-bottom: 2px solid #cee0e0;
 }
 
+.crt-account-txt-atag:hover {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 740px) {
   .admin-img-login {
     width: 50%;
+  }
+
+  .center-bot-img {
+    width: 40%;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -65,5 +82,9 @@
 
   .admin-form {
     width: 33%;
+  }
+
+  .center-bot-img {
+    width: 25%;
   }
 }

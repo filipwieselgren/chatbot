@@ -59,6 +59,7 @@ body {
   height: 80vh;
   margin: 50px 20px;
   flex-direction: column;
+  z-index: 999;
 }
 
 .bot-img {
@@ -73,6 +74,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
 }
 
 .chat-html-end {
