@@ -38,7 +38,7 @@
 }
 
 .admin-form-btn {
-  border: none;
+  border: 1px solid black;
   padding: 10px;
   border-radius: 10px;
   margin-top: 20px;
@@ -50,6 +50,20 @@
 }
 
 .crt-account-txt-atag {
-  text-decoration: underline;
-  text-decoration-color: #cee0e0;
+  border-bottom: 2px solid #cee0e0;
+}
+
+@media only screen and (min-width: 740px) {
+  .admin-img-login {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .admin-img-login {
+    width: 33%;
+  }
+
+  .admin-form {
+    width: 33%;
+  }
 }

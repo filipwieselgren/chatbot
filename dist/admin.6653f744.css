@@ -35,7 +35,7 @@
 
 .admin-form-btn {
   background-color: #cee0e0;
-  border: none;
+  border: 1px solid #000;
   border-radius: 10px;
   margin-top: 20px;
   padding: 10px;
@@ -46,7 +46,19 @@
 }
 
 .crt-account-txt-atag {
-  text-decoration: underline #cee0e0;
+  border-bottom: 2px solid #cee0e0;
+}
+
+@media only screen and (min-width: 740px) {
+  .admin-img-login {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .admin-img-login, .admin-form {
+    width: 33%;
+  }
 }
 
 /*# sourceMappingURL=admin.6653f744.css.map */
