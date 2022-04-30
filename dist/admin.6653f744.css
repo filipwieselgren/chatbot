@@ -4,18 +4,49 @@
   padding: 0;
 }
 
-.admin-img-login-con {
-  height: 50vh;
-  border: 2px solid red;
-}
-
 .admin-img-login {
   width: 80%;
 }
 
 .admin-form-con {
-  height: 50vh;
-  border: 2px solid #00f;
+  justify-content: center;
+  display: flex;
+}
+
+.admin-form {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.admin-form-username, .admin-form-password, .admin-form-btn {
+  width: 80%;
+}
+
+.admin-form-username, .admin-form-password {
+  border: 1px solid #cee0e0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.admin-form-password {
+  margin-top: 10px;
+}
+
+.admin-form-btn {
+  background-color: #cee0e0;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.crt-account-txt {
+  margin-top: 10px;
+}
+
+.crt-account-txt-atag {
+  text-decoration: underline #cee0e0;
 }
 
 /*# sourceMappingURL=admin.6653f744.css.map */

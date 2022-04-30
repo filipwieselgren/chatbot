@@ -18,7 +18,7 @@ const showForm = ()=>{
     const adminFormPassword = document.createElement("input");
     const adminFormBtn = document.createElement("button");
     const crtAccountTxt = document.createElement("div");
-    const crtAccountTxtAtag = document.createElement("a");
+    const crtAccountTxtAtag = document.createElement("span");
     adminFormCon.className = "admin-form-con";
     adminForm.className = "admin-form";
     adminFormUserName.className = "admin-form-username";

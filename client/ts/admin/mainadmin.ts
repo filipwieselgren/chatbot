@@ -1,3 +1,5 @@
+import { createAccount } from "./createaccount";
+
 window.onload = function () {
   showImg();
   showForm();
@@ -35,18 +37,22 @@ const showForm = () => {
   const adminFormUserName: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
+
   const adminFormPassword: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
+
   const adminFormBtn: HTMLButtonElement = document.createElement(
     "button"
   ) as HTMLButtonElement;
+
   const crtAccountTxt: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
-  const crtAccountTxtAtag: HTMLAnchorElement = document.createElement(
-    "a"
-  ) as HTMLAnchorElement;
+
+  const crtAccountTxtAtag: HTMLSpanElement = document.createElement(
+    "span"
+  ) as HTMLSpanElement;
 
   adminFormCon.className = "admin-form-con";
   adminForm.className = "admin-form";
@@ -54,12 +60,17 @@ const showForm = () => {
   adminFormPassword.className = "admin-form-password";
   adminFormBtn.className = "admin-form-btn";
   crtAccountTxt.className = "crt-account-txt";
+  crtAccountTxtAtag.className = "crt-account-txt-atag";
 
   adminFormUserName.placeholder = "Username";
   adminFormPassword.placeholder = "Password";
   adminFormBtn.innerText = "Login";
   crtAccountTxt.innerText = "Don’t have an account? Create one ";
   crtAccountTxtAtag.innerText = "here";
+
+  crtAccountTxtAtag.addEventListener("click", () => {
+    createAccount();
+  });
 
   document.body.appendChild(adminFormCon);
   adminFormCon.appendChild(adminForm);
