@@ -20,13 +20,14 @@
 }
 
 .admin-form {
+  width: 60%;
   flex-direction: column;
   align-items: center;
   display: flex;
 }
 
 .admin-form-username, .admin-form-password, .admin-form-btn {
-  width: 80%;
+  width: 100%;
 }
 
 .admin-form-username, .admin-form-password {
@@ -60,6 +61,11 @@
 }
 
 @media only screen and (min-width: 740px) {
+  .admin-img-login-con {
+    justify-content: center;
+    display: flex;
+  }
+
   .admin-img-login {
     width: 50%;
   }
@@ -67,10 +73,26 @@
   .center-bot-img {
     width: 40%;
   }
+
+  .admin-form {
+    width: 40%;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-  .admin-img-login, .admin-form {
+  .admin-img-login-con {
+    justify-content: center;
+    display: flex;
+  }
+
+  .admin-img-login {
+    width: 25%;
+  }
+
+  .admin-form {
     width: 33%;
   }
 
