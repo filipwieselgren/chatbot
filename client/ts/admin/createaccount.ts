@@ -1,4 +1,4 @@
-import { showImg } from "./mainadmin";
+import { showImg, showForm } from "./mainadmin";
 
 window.onload = function () {
   createAccountImg();
@@ -6,8 +6,6 @@ window.onload = function () {
 };
 
 export const createAccountImg = () => {
-  console.log("skapa konto");
-
   showImg();
 
   const getAdminImgLoginCon: HTMLDivElement = document.querySelector(
@@ -25,32 +23,25 @@ export const createAccountImg = () => {
   getAdminImgLoginCon.classList.remove("admin-img-login-con");
   getAdminImgLoginCon.classList.add("center-bot");
 
-  // adminImgLoginCon.className = "admin-img-login-con";
-
-  // adminImgLogin.className = "admin-img-login";
   getAdminImgLoginCon.appendChild(getAdminImgLogin);
 };
 
-const createAccountForm = () => {
+export const createAccountForm = () => {
   const adminFormCon: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
-
   const adminForm: HTMLFormElement = document.createElement(
     "form"
   ) as HTMLFormElement;
-
   const adminFormUserName: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
-
   const adminFormPassword: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
   const adminFormPasswordConfirm: HTMLInputElement = document.createElement(
     "input"
   ) as HTMLInputElement;
-
   const adminFormBtn: HTMLButtonElement = document.createElement(
     "button"
   ) as HTMLButtonElement;
@@ -65,6 +56,7 @@ const createAccountForm = () => {
   adminFormUserName.placeholder = "Username";
   adminFormPassword.placeholder = "Password";
   adminFormPasswordConfirm.placeholder = "Confirm password";
+
   adminFormBtn.innerText = "Create account";
 
   adminFormPassword.type = "password";

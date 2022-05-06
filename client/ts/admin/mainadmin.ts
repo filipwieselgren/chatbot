@@ -1,3 +1,7 @@
+import { createAccountForm } from "./createaccount";
+
+let showLoginForm: Boolean = true;
+
 window.onload = function () {
   showImg();
   showForm();

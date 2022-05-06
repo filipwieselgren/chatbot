@@ -520,6 +520,7 @@ parcelHelpers.export(exports, "showImg", ()=>showImg
 );
 parcelHelpers.export(exports, "showForm", ()=>showForm
 );
+let showLoginForm = true;
 window.onload = function() {
     showImg();
     showForm();

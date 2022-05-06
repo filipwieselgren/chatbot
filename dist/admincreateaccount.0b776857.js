@@ -518,13 +518,14 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createAccountImg", ()=>createAccountImg
 );
+parcelHelpers.export(exports, "createAccountForm", ()=>createAccountForm
+);
 var _mainadmin = require("./mainadmin");
 window.onload = function() {
     createAccountImg();
     createAccountForm();
 };
 const createAccountImg = ()=>{
-    console.log("skapa konto");
     _mainadmin.showImg();
     const getAdminImgLoginCon = document.querySelector(".admin-img-login-con");
     const getAdminImgLogin = document.querySelector(".admin-img-login");
@@ -532,8 +533,6 @@ const createAccountImg = ()=>{
     getAdminImgLogin.className = "center-bot-img";
     getAdminImgLoginCon.classList.remove("admin-img-login-con");
     getAdminImgLoginCon.classList.add("center-bot");
-    // adminImgLoginCon.className = "admin-img-login-con";
-    // adminImgLogin.className = "admin-img-login";
     getAdminImgLoginCon.appendChild(getAdminImgLogin);
 };
 const createAccountForm = ()=>{
@@ -563,6 +562,6 @@ const createAccountForm = ()=>{
     adminForm.appendChild(adminFormBtn);
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./mainadmin":"5T919"}]},["hPhWS","elRpq"], "elRpq", "parcelRequire8566")
+},{"./mainadmin":"5T919","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["hPhWS","elRpq"], "elRpq", "parcelRequire8566")
 
 //# sourceMappingURL=admincreateaccount.0b776857.js.map
