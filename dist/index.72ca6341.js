@@ -759,6 +759,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "sendMessage", ()=>sendMessage
 );
 const sendMessage = (clientMessage)=>{
+    let msgArr = [];
     const chatHtmlMsg = document.querySelector(".chat-html-end");
     const clientMessageValue = document.querySelector(".client-message");
     const showMsg = document.createElement("div");
@@ -767,6 +768,8 @@ const sendMessage = (clientMessage)=>{
     showMsg.className = "show-msg";
     const getNameFromLocal = JSON.parse(localStorage.getItem("client") || "");
     const getClientMessage = clientMessageValue.value;
+    msgArr.push(getClientMessage);
+    localStorage.setItem("clientmsg", JSON.stringify(getClientMessage));
     if (getClientMessage) {
         showMsg.innerText = getClientMessage.toString();
         // clientMessage.innerText = "";

@@ -1,4 +1,6 @@
 export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
+  let msgArr: String[] = [];
+
   const chatHtmlMsg: HTMLDivElement = document.querySelector(
     ".chat-html-end"
   ) as HTMLDivElement;
@@ -24,6 +26,10 @@ export const sendMessage = (clientMessage: HTMLTextAreaElement) => {
   const getNameFromLocal = JSON.parse(localStorage.getItem("client") || "");
 
   const getClientMessage: String = clientMessageValue.value;
+
+  msgArr.push(getClientMessage);
+
+  localStorage.setItem("clientmsg", JSON.stringify(getClientMessage));
 
   if (getClientMessage) {
     showMsg.innerText = getClientMessage.toString();

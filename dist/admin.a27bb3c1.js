@@ -558,6 +558,10 @@ const showForm = ()=>{
     crtAccountTxtAtag.addEventListener("click", ()=>{
         window.location.replace("admincreateaccount.html");
     });
+    adminFormBtn.addEventListener("click", (e)=>{
+        e.preventDefault();
+        window.location.replace("adminprofil.html");
+    });
     document.body.appendChild(adminFormCon);
     adminFormCon.appendChild(adminForm);
     adminForm.appendChild(adminFormUserName);
