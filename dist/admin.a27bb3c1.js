@@ -514,7 +514,12 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"5T919":[function(require,module,exports) {
-var _createaccount = require("./createaccount");
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "showImg", ()=>showImg
+);
+parcelHelpers.export(exports, "showForm", ()=>showForm
+);
 window.onload = function() {
     showImg();
     showForm();
@@ -525,6 +530,7 @@ const showImg = ()=>{
     adminImgLoginCon.className = "admin-img-login-con";
     adminImgLogin.className = "admin-img-login";
     adminImgLogin.src = "../public/images/chatbotlogin.png";
+    // getAdminImgLogin.src = "../public/images/chatbot-create-account.png";
     document.body.appendChild(adminImgLoginCon);
     adminImgLoginCon.appendChild(adminImgLogin);
 };
@@ -550,7 +556,6 @@ const showForm = ()=>{
     crtAccountTxtAtag.innerText = "here";
     crtAccountTxtAtag.addEventListener("click", ()=>{
         window.location.replace("admincreateaccount.html");
-        _createaccount.createAccount();
     });
     document.body.appendChild(adminFormCon);
     adminFormCon.appendChild(adminForm);
@@ -559,26 +564,6 @@ const showForm = ()=>{
     adminForm.appendChild(adminFormBtn);
     adminForm.appendChild(crtAccountTxt);
     crtAccountTxt.appendChild(crtAccountTxtAtag);
-};
-
-},{"./createaccount":"elRpq"}],"elRpq":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "createAccount", ()=>createAccount
-);
-const createAccount = ()=>{
-    console.log("skapa konto");
-    const getAdminImgLoginCon = document.querySelector(".admin-img-login-con");
-    const getAdminImgLogin = document.querySelector(".admin-img-login");
-    const getAdminForm = document.querySelector(".admin-form");
-    getAdminImgLogin.src = "../public/images/chatbot-create-account.png";
-    getAdminImgLogin.className = "center-bot-img";
-    getAdminImgLoginCon.classList.remove("admin-img-login-con");
-    getAdminImgLoginCon.classList.add("center-bot");
-    getAdminForm.remove();
-    // adminImgLoginCon.className = "admin-img-login-con";
-    // adminImgLogin.className = "admin-img-login";
-    getAdminImgLoginCon.appendChild(getAdminImgLogin);
 };
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {

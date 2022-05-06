@@ -1,11 +1,9 @@
-import { createAccount } from "./createaccount";
-
 window.onload = function () {
   showImg();
   showForm();
 };
 
-const showImg = () => {
+export const showImg = () => {
   const adminImgLoginCon: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
@@ -20,12 +18,14 @@ const showImg = () => {
 
   adminImgLogin.src = "../public/images/chatbotlogin.png";
 
+  // getAdminImgLogin.src = "../public/images/chatbot-create-account.png";
+
   document.body.appendChild(adminImgLoginCon);
 
   adminImgLoginCon.appendChild(adminImgLogin);
 };
 
-const showForm = () => {
+export const showForm = () => {
   const adminFormCon: HTMLDivElement = document.createElement(
     "div"
   ) as HTMLDivElement;
@@ -70,7 +70,6 @@ const showForm = () => {
 
   crtAccountTxtAtag.addEventListener("click", () => {
     window.location.replace("admincreateaccount.html");
-    createAccount();
   });
 
   document.body.appendChild(adminFormCon);
