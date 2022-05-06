@@ -69,6 +69,7 @@ const showForm = () => {
   crtAccountTxtAtag.innerText = "here";
 
   crtAccountTxtAtag.addEventListener("click", () => {
+    window.location.replace("admincreateaccount.html");
     createAccount();
   });
 

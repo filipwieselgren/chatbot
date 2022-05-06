@@ -549,6 +549,7 @@ const showForm = ()=>{
     crtAccountTxt.innerText = "Don’t have an account? Create one ";
     crtAccountTxtAtag.innerText = "here";
     crtAccountTxtAtag.addEventListener("click", ()=>{
+        window.location.replace("admincreateaccount.html");
         _createaccount.createAccount();
     });
     document.body.appendChild(adminFormCon);
@@ -566,6 +567,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createAccount", ()=>createAccount
 );
 const createAccount = ()=>{
+    console.log("skapa konto");
     const getAdminImgLoginCon = document.querySelector(".admin-img-login-con");
     const getAdminImgLogin = document.querySelector(".admin-img-login");
     const getAdminForm = document.querySelector(".admin-form");

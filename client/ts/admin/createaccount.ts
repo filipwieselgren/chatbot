@@ -1,4 +1,6 @@
 export const createAccount = () => {
+  console.log("skapa konto");
+
   const getAdminImgLoginCon: HTMLDivElement = document.querySelector(
     ".admin-img-login-con"
   ) as HTMLDivElement;
@@ -23,6 +25,5 @@ export const createAccount = () => {
   // adminImgLoginCon.className = "admin-img-login-con";
 
   // adminImgLogin.className = "admin-img-login";
-
   getAdminImgLoginCon.appendChild(getAdminImgLogin);
 };
